@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kotlin.compose) //++
+    //alias(libs.plugins.kotlin.kapt) //--
 }
 
 android {
@@ -27,8 +30,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17 //++
+        targetCompatibility = JavaVersion.VERSION_17 //++
     }
 
     buildFeatures {
@@ -37,7 +40,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14" // ou baseado no compose bom se necessário
+        kotlinCompilerExtensionVersion = "1.5.14" //++
     }
 
     kotlinOptions {
@@ -100,7 +103,7 @@ dependencies {
     implementation(libs.rx.java)
     implementation(libs.rx.android)
 
-    // Testes
+    // Tests
     testImplementation(libs.junit)
     testImplementation(libs.core.testing)
     testImplementation(libs.mockito.core)
