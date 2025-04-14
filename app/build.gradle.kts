@@ -1,18 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.kotlin.kapt)
-    alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "com.example.app"
+    namespace = "com.code.challenge"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.app"
-        minSdk = 24
+        applicationId = "com.code.challenge"
+        minSdk = 21
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -28,6 +25,10 @@ android {
                 "proguard-rules.pro"
             )
         }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     buildFeatures {
@@ -45,6 +46,7 @@ android {
 }
 
 dependencies {
+
     // AndroidX Core
     implementation(libs.core.ktx)
     implementation(libs.appcompat)

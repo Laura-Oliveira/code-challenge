@@ -1,16 +1,5 @@
-val cacheDependencies = tasks.register<Sync>("cacheDependencies") {
-    into(temporaryDir)
-    allprojects {
-        val relativePath = projectDir.toRelativeString(rootDir)
-
-        configurations.matching { it.isCanBeResolved }.all config@{
-            from(incoming.artifactView { componentFilter { it is ModuleComponentIdentifier } }.files) {
-                into("$relativePath/${this@config.name}")
-            }
-        }
-    }
-}
-
-tasks.named("prepareKotlinBuildScriptModel") {
-    dependsOn(cacheDependencies)
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
 }
